@@ -16,6 +16,6 @@ arr[0] = 5
 z = arr.reshape(2, 2)
 
 
-print(arr)  
+print(arr)
 print(arr.dtype, arr.shape)
 print(x, x.base, y, y.base, sep='\n')
