@@ -25,7 +25,6 @@ data = data.set_index('company')
 
 # describe the table
 view = data.describe()
-print(view)
 
 # add the range, cov and var column value
 view.loc['R'] = view.loc['max'] - view.loc['min']
@@ -37,34 +36,35 @@ view.to_excel('out.xlsx', sheet_name='sheet1')
 print(view)
 
 
-# creat the figure to describe the data distribute
-fig, ax = plt.subplots(3, 1, sharex=True)
+# # creat the figure to describe the data distribute
+# fig, ax = plt.subplots(3, 1, sharex=True)
 
 
-# add the three dimensions of the data
-labels = ['X total sales', 'Y profit', 'Z assets']
-print(view['Z assets']['25%'])
-for i in range(3):
+# # add the three dimensions of the data
+# labels = ['X total sales', 'Y profit', 'Z assets']
+# print(view['Z assets']['25%'])
+# for i in range(3):
 
-    # scatter the point
-    ax[i].scatter(data.index, data[labels[i]], s=10)
+#     # scatter the point
+#     ax[i].scatter(data.index, data[labels[i]], s=10)
 
-    # plot the line picture
-    ax[i].plot(data.index, data[labels[i]])
+#     # plot the line picture
+#     ax[i].plot(data.index, data[labels[i]])
 
-    # add the control lines
-    ax[i].axhline(view[labels[i]]['75%'], color='red', label='75%')
-    ax[i].axhline(view[labels[i]]['mean'], color='yellow', label='mean')
-    ax[i].axhline(view[labels[i]]['25%'], color='blue', label='25%')
+#     # add the control lines
+#     ax[i].axhline(view[labels[i]]['75%'], color='red', label='75%')
+#     ax[i].axhline(view[labels[i]]['mean'], color='yellow', label='mean')
+#     ax[i].axhline(view[labels[i]]['25%'], color='blue', label='25%')
 
-    # set the title of the subfig
-    ax[i].set_title(labels[i])
+#     # set the title of the subfig
+#     ax[i].set_title(labels[i])
 
-# display the label of first figure
-ax[0].legend()
+# # display the label of first figure
+# ax[0].legend()
 
 
-
+print(data)
+print(data['X total sales'].dtype)
 # plot the scatter picture
 sns.regplot(x='X total sales', y='Y profit', data=data)
 plt.grid(True)
