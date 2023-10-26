@@ -27,4 +27,6 @@ df2 = data.loc[data['组别']==2]
 df3 = data.loc[data['组别']==3]
 
 
-print(df1, df2, df3)
+f, p = stats.f_oneway(df1, df2, df3)
+
+print(f, p)
