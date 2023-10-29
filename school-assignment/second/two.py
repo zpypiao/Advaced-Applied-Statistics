@@ -1,6 +1,8 @@
 import numpy as np
 
-data = np.mat([[25, 7, 2.5],
+from sklearn.preprocessing import StandardScaler
+
+data = np.array([[25, 7, 2.5],
                [18, 6, 2.2],
                [23, 7, 2.3]])
 
@@ -17,3 +19,8 @@ data_ = data - m
 a = np.dot(data_, data_.T)
 
 print(a)
+
+
+transfer = StandardScaler()
+data_new = transfer.fit_transform(data)
+print(data_new)

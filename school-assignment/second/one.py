@@ -1,6 +1,7 @@
 import numpy as np
 
 
+
 mu = np.mat([2, -3, 1]).T
 
 sigma = np.mat([[25, -2, 4],
